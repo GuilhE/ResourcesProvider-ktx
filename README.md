@@ -9,7 +9,7 @@ Fear no more, this lib puts them all in one place! 🤩🥳
 The first step is to include ResourcesProvider-ktx into your project, for example, as a Gradle compile dependency:
 
 ```groovy
-implementation com.github.guilhe:resources-provider-ktx:1.0.0'${LATEST_VERSION}'
+implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 ```
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.guilhe:resources-provider-ktx/badge.svg)](https://search.maven.org/search?q=g:com.github.guilhe:resources-provider-ktx) [![Download](https://api.bintray.com/packages/gdelgado/android/ResourcesProvider-ktx/images/download.svg)](https://bintray.com/gdelgado/android/ResourcesProvider-ktx/_latestVersion)
 
@@ -79,7 +79,11 @@ Done! 😎
 ## Bugs and Feedback
 
 For bugs, questions and discussions please use the [Github Issues](https://github.com/GuilhE/ResourcesProvider-ktx/issues).
- 
+
+## Binaries
+Additional binaries and dependency information for can be found at [https://search.maven.org](https://search.maven.org/search?q=g:com.github.guilhe.resources-provider-ktx).  
+<a href='https://bintray.com/gdelgado/android/ResourcesProvider-ktx?source=watch' alt='Get automatic notifications about new "ResourcesProvider-ktx" versions'><img src='https://www.bintray.com/docs/images/bintray_badge_bw.png'></a>
+
 ## LICENSE
 
 Copyright (c) 2019-present GuilhE
