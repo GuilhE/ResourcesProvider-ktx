@@ -9,7 +9,7 @@ Fear no more, this lib puts them all in one place! 🤩🥳
 The first step is to include ResourcesProvider-ktx into your project, for example, as a Gradle compile dependency:
 
 ```groovy
-implementation 'compile 'com.github.guilhe:resources-provider-ktx:1.0.0'${LATEST_VERSION}'
+implementation com.github.guilhe:resources-provider-ktx:1.0.0'${LATEST_VERSION}'
 ```
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.guilhe:resources-provider-ktx/badge.svg)](https://search.maven.org/search?q=g:com.github.guilhe:resources-provider-ktx) [![Download](https://api.bintray.com/packages/gdelgado/android/ResourcesProvider-ktx/images/download.svg)](https://bintray.com/gdelgado/android/ResourcesProvider-ktx/_latestVersion)
 
