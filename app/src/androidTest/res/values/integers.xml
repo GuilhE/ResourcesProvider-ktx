@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="status_bar_notification_info_maxnum">999</integer>
+    <integer-array name="intArray">
+        <item>2</item>
+        <item>8</item>
+        <item>10</item>
+        <item>16</item>
+    </integer-array>
+</resources>
