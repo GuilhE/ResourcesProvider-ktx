@@ -35,9 +35,9 @@ implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 - colorStateList(@ColorRes resId: Int): ColorStateList?
 - font(@FontRes id: Int): Typeface?
 - loadAnimation(@AnimRes id: Int): Animation
-- resolveAttribute(@AttrRes id: Int): Boolean
-- value(@DimenRes id: Int): TypedValue
-- identifier: Int
+- resolveAttribute(@AttrRes id: Int, outValue: TypedValue, resolveRefs: Boolean): Boolean
+- value(@DimenRes id: Int, resolveRefs: Boolean): TypedValue
+- identifier(name: String, defType: String, defPackage: String): Int
 ```
 
 ## Sample usage
@@ -50,7 +50,7 @@ class Activity : AppCompatActivity(){
     }
 }
 ```
-By @Inject:
+By `@Inject`:
 ```java
 class MyClass
 @Inject constructor(resourcesProvider: ResourcesProvider)
