@@ -1,2 +1,2 @@
-include ':app'
+include ':resources-provider-ktx'
 rootProject.name='android-resourcesprovider-ktx'
