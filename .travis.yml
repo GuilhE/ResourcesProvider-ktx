@@ -36,9 +36,7 @@ before_install:
   - yes | sdkmanager "platforms;android-$EMU_API_LEVEL"
 
 before_script:
-#  - ./gradlew build jacocoTestReport assembleAndroidTest
-# inline functions will not have code coverage
-
+  - ./gradlew build jacocoTestReport assembleAndroidTest
   - echo no | android create avd --force -n $EMU_NAME -t android-$EMU_API_LEVEL --abi google_apis/$EMU_ABI
   # Do not remove '-no-window' from the next instruction because "Waiting for emulator to start" will return super fast
   # and then, inside 'script:', we'll receive an error because apparently there's no device ready
