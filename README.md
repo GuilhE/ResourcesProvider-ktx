@@ -1,4 +1,4 @@
-# ResourcesProvider-ktx:
+# ResourcesProvider-ktx
 [![Build Status](https://travis-ci.org/GuilhE/ResourcesProvider-ktx.svg?branch=master)](https://travis-ci.org/GuilhE/ResourcesProvider-ktx) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/db0d3641099f4903b2524c67a7e5a5b0)](https://www.codacy.com/manual/GuilhE/ResourcesProvider-ktx?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=GuilhE/ResourcesProvider-ktx&amp;utm_campaign=Badge_Grade)
 
 Need a resource but don't remember where to get it from: ContextCompat, ResourcesCompat, AnimationUtils, Context.resources?  
