@@ -42,7 +42,7 @@ implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 
 ## Sample usage
 
-By Kotline Extensions (View, Activity, Fragment):
+By Kotlin Extensions (View, Activity, Fragment):
 ```java
 class Activity : AppCompatActivity(){
     fun work() {
