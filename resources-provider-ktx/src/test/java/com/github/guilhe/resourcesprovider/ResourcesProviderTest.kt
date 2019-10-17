@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.Color
-import android.graphics.Typeface
 import android.util.TypedValue
 import androidx.test.core.app.ApplicationProvider
 import com.github.guilhe.resourcesprovider.test.R
