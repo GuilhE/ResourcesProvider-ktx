@@ -86,14 +86,17 @@ constructor(val ctx: Context) {
 }
 
 //Helper extensions
+@Suppress("unused")
 fun View.resourcesProvider(): ResourcesProvider {
     return ResourcesProvider(context)
 }
 
+@Suppress("unused")
 fun Activity.resourcesProvider(): ResourcesProvider {
     return ResourcesProvider(this)
 }
 
+@Suppress("unused")
 @Throws(IllegalStateException::class)
 fun Fragment.resourcesProvider(): ResourcesProvider {
     return ResourcesProvider(requireContext())

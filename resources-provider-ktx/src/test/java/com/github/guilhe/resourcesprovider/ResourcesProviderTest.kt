@@ -1,25 +1,21 @@
 package com.github.guilhe.resourcesprovider
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.Color
+import android.graphics.Typeface
+import android.util.TypedValue
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.guilhe.resourcesprovider.test.R
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 import java.util.*
-import android.content.res.ColorStateList
-import android.util.TypedValue
 
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
-@RunWith(AndroidJUnit4::class)
+@RunWith(RobolectricTestRunner::class)
 class ResourcesProviderTest {
 
     private lateinit var appContext: Context
@@ -134,7 +130,7 @@ class ResourcesProviderTest {
 
     @Test
     fun font() {
-        assertEquals(resourcesProvider.font(R.font.roboto_bold)!!.isBold, true)
+        assertNotNull(resourcesProvider.font(R.font.roboto_bold))
     }
 
     @Test
