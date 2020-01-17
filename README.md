@@ -81,7 +81,7 @@ Done! 😎
 For bugs, questions and discussions please use the [Github Issues](https://github.com/GuilhE/ResourcesProvider-ktx/issues).
 
 ## Binaries
-Additional binaries and dependency information for can be found at [https://search.maven.org](https://search.maven.org/search?q=g:com.github.guilhe%20AND%20resources-provider-ktx).  
+Additional binaries and dependency information for can be found [here](https://search.maven.org/artifact/com.github.guilhe/resources-provider-ktx).  
 <a href='https://bintray.com/gdelgado/android/ResourcesProvider-ktx?source=watch' alt='Get automatic notifications about new "ResourcesProvider-ktx" versions'><img src='https://www.bintray.com/docs/images/bintray_badge_bw.png'></a>
 
 ## LICENSE
