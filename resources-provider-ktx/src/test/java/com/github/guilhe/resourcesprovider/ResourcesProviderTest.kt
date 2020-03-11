@@ -115,6 +115,7 @@ class ResourcesProviderTest {
     @Test
     fun color() {
         assertEquals(resourcesProvider.color(R.color.black), Color.BLACK)
+        assertEquals(resourcesProvider.color(android.R.attr.textColor, R.style.AppTheme_TextView), Color.BLACK)
     }
 
     @Test
@@ -139,19 +140,21 @@ class ResourcesProviderTest {
 
     @Test
     fun resolveAttribute() {
-        appContext.setTheme(R.style.AppTheme_TextView)
+        resourcesProvider = ResourcesProvider(appContext, R.style.AppTheme_TextView)
         val value = TypedValue()
 
-        var resolved = resourcesProvider.resolveAttribute(android.R.attr.fontFamily, value, false)
-        assertEquals(resolved, true)
+        assertEquals(resourcesProvider.resolveAttribute(android.R.attr.actionBarSize, value, false), false)
+
+        assertEquals(resourcesProvider.resolveAttribute(android.R.attr.fontFamily, value, false), true)
         assertEquals(value.type, TypedValue.TYPE_REFERENCE)
 
-        resolved = resourcesProvider.resolveAttribute(android.R.attr.textColor, value, false)
-        assertEquals(resolved, true)
-        assertEquals(value.type, TypedValue.TYPE_REFERENCE)
+        resourcesProvider.resolveAttribute(android.R.attr.textColor, value, true)
+        assertEquals(resourcesProvider.color(value.resourceId), resourcesProvider.color(R.color.black))
 
-        resolved = resourcesProvider.resolveAttribute(android.R.attr.actionBarSize, value, false)
-        assertEquals(resolved, false)
+        val valueStyled = TypedValue()
+        resourcesProvider.resolveAttribute(android.R.attr.textColor, R.style.AppTheme_TextView, valueStyled, true)
+        assertEquals(valueStyled.resourceId, value.resourceId)
+        assertEquals(resourcesProvider.color(valueStyled.resourceId), resourcesProvider.color(value.resourceId))
     }
 
     @Test
