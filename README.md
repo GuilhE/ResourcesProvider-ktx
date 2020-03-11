@@ -31,11 +31,16 @@ implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 - dimensionPixelSize(@DimenRes resId: Int): Int
 - dimensionPixelOffset(@DimenRes resId: Int): Int
 - drawable(@DrawableRes resId: Int): Drawable?
+- drawable(@DrawableRes id: Int, @StyleRes themeResId: Int): Drawable?
+- drawableForDensity(@DrawableRes id: Int, @StyleRes themeResId: Int, density: Int): Drawable?
 - color(@ColorRes resId: Int): Int
+- color(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Int
 - colorStateList(@ColorRes resId: Int): ColorStateList?
+- colorStateList(@ColorRes id: Int, @StyleRes themeResId: Int): ColorStateList?
 - font(@FontRes id: Int): Typeface?
 - loadAnimation(@AnimRes id: Int): Animation
 - resolveAttribute(@AttrRes id: Int, outValue: TypedValue, resolveRefs: Boolean): Boolean
+- resolveAttribute(@AttrRes id: Int, @StyleRes themeResId: Int, outValue: TypedValue, resolveRefs: Boolean): Boolean
 - value(@DimenRes id: Int, resolveRefs: Boolean): TypedValue
 - identifier(name: String, defType: String, defPackage: String): Int
 ```
