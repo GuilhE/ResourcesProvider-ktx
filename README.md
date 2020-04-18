@@ -52,15 +52,15 @@ by `@ColorRes`:
 ```java
 .setBackgroundColor( 
     TypedValue().also {
-        resourcesProvider().resolveAttribute(R.attr.colorPrimary, R.style.App_Style_A, it, true)
+        resourcesProvider.resolveAttribute(R.attr.colorPrimary, R.style.App_Style_A, it, true)
     }.resourceId
 )
 ```
 
 by `@ColorInt`:  
 ```java
-.backgroundTintList = ColorStateList.valueOf(resourcesProvider().color(R.attr.colorPrimary, R.style.App_Style_B))
-.setColor(resourcesProvider().color(R.attr.colorPrimary, R.style.App_Style_B))
+.backgroundTintList = ColorStateList.valueOf(resourcesProvider.color(R.attr.colorPrimary, R.style.App_Style_B))
+.setColor(resourcesProvider.color(R.attr.colorPrimary, R.style.App_Style_B))
 ```
 
 ## Sample usage
