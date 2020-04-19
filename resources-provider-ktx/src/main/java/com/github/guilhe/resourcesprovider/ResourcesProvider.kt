@@ -1,3 +1,5 @@
+@file:Suppress("unused", "NOTHING_TO_INLINE")
+
 package com.github.guilhe.resourcesprovider
 
 import android.app.Activity
@@ -16,7 +18,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 
-@Suppress("unused", "NOTHING_TO_INLINE")
 class ResourcesProvider
 constructor(val ctx: Context) {
 
@@ -79,12 +80,19 @@ constructor(val ctx: Context) {
     inline fun color(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Int =
         color(TypedValue().also { ContextThemeWrapper(ctx, themeResId).theme.resolveAttribute(attrResId, it, true) }.resourceId)
 
+    @ColorRes
+    inline fun colorRes(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Int =
+        TypedValue().also { ContextThemeWrapper(ctx, themeResId).theme.resolveAttribute(attrResId, it, true) }.resourceId
+
     @Throws(Resources.NotFoundException::class)
     inline fun colorStateList(@ColorRes id: Int): ColorStateList? = ContextCompat.getColorStateList(ctx, id)
 
     @Throws(Resources.NotFoundException::class)
     inline fun colorStateList(@ColorRes id: Int, @StyleRes themeResId: Int): ColorStateList? =
         ResourcesCompat.getColorStateList(ctx.resources, id, ContextThemeWrapper(ctx, themeResId).theme)
+
+    inline fun colorStateListFromAttr(@AttrRes attrResId: Int, @StyleRes themeResId: Int): ColorStateList =
+        ColorStateList.valueOf(color(attrResId, themeResId))
 
     @Throws(Resources.NotFoundException::class)
     inline fun font(@FontRes id: Int): Typeface? = ResourcesCompat.getFont(ctx, id)
@@ -107,18 +115,16 @@ constructor(val ctx: Context) {
 }
 
 //Helper extensions
-@Suppress("unused")
-fun View.resourcesProvider(): ResourcesProvider {
-    return ResourcesProvider(context)
-}
+fun View.resourcesProvider() = ResourcesProvider(context)
 
-@Suppress("unused")
-fun Activity.resourcesProvider(): ResourcesProvider {
-    return ResourcesProvider(this)
-}
+fun View.resourcesProvider(@StyleRes themeResId: Int) = ResourcesProvider(context, themeResId)
 
-@Suppress("unused")
+fun Activity.resourcesProvider() = ResourcesProvider(this)
+
+fun Activity.resourcesProvider(@StyleRes themeResId: Int) = ResourcesProvider(this, themeResId)
+
 @Throws(IllegalStateException::class)
-fun Fragment.resourcesProvider(): ResourcesProvider {
-    return ResourcesProvider(requireContext())
-}
+fun Fragment.resourcesProvider(): ResourcesProvider = ResourcesProvider(requireContext())
+
+@Throws(IllegalStateException::class)
+fun Fragment.resourcesProvider(@StyleRes themeResId: Int) = ResourcesProvider(requireContext(), themeResId)

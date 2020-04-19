@@ -3,4 +3,9 @@
         <item name="android:textColor">@android:color/black</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
     </style>
+
+    <style name="AppTheme.Selector" parent="android:Widget.TextView">
+        <item name="android:textColor">#FF444444</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
 </resources>

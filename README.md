@@ -35,8 +35,10 @@ implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 - drawableForDensity(@DrawableRes id: Int, @StyleRes themeResId: Int, density: Int): Drawable?
 - color(@ColorRes resId: Int): Int
 - color(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Int
+- colorRes(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Int
 - colorStateList(@ColorRes resId: Int): ColorStateList?
 - colorStateList(@ColorRes id: Int, @StyleRes themeResId: Int): ColorStateList?
+- colorStateListFromAttr(@AttrRes attrResId: Int, @StyleRes themeResId: Int): ColorStateList
 - font(@FontRes id: Int): Typeface?
 - loadAnimation(@AnimRes id: Int): Animation
 - resolveAttribute(@AttrRes id: Int, outValue: TypedValue, resolveRefs: Boolean): Boolean
@@ -46,21 +48,22 @@ implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 ```
 ## Themes
 
-You can also easily change theme attributes as follow:
+You can also easily change themed attributes as follow:
 
 by `@ColorRes`:  
 ```java
-.setBackgroundColor( 
-    TypedValue().also {
-        resourcesProvider.resolveAttribute(R.attr.colorPrimary, R.style.App_Style_A, it, true)
-    }.resourceId
-)
+.setBackgroundColor(resourcesProvider.colorRes(R.attr.colorPrimary, R.style.App_Style_A)
 ```
 
 by `@ColorInt`:  
 ```java
-.backgroundTintList = ColorStateList.valueOf(resourcesProvider.colorStateList(R.attr.colorPrimary, R.style.App_Style_B))
-.setColor(resourcesProvider.color(R.attr.colorPrimary, R.style.App_Style_C))
+.setColor(resourcesProvider.color(R.attr.colorPrimary, R.style.App_Style_B))
+```
+
+by `ColorStateList`:  
+```java
+.backgroundTintList = resourcesProvider.colorStateListFromAttr(R.attr.colorPrimary, R.style.App_Style_C)
+.backgroundTintList = resourcesProvider.colorStateList(R.color.color_selector, R.style.App_Style_C)
 ```
 
 ## Sample usage

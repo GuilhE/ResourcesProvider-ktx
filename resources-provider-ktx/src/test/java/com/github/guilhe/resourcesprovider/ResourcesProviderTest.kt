@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.Color
+import android.os.Build
 import android.util.TypedValue
 import androidx.test.core.app.ApplicationProvider
 import com.github.guilhe.resourcesprovider.test.R
@@ -12,9 +13,11 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 import java.util.*
 
 @RunWith(RobolectricTestRunner::class)
+@Config(sdk = [Build.VERSION_CODES.O_MR1])
 class ResourcesProviderTest {
 
     private lateinit var appContext: Context
@@ -25,13 +28,18 @@ class ResourcesProviderTest {
 
     @Before
     fun init() {
-        appContext = ApplicationProvider.getApplicationContext<Context>()
+        appContext = ApplicationProvider.getApplicationContext()
         resourcesProvider = ResourcesProvider(appContext)
     }
 
     @Test
     fun context() {
         assertEquals(resourcesProvider.ctx, appContext)
+    }
+
+    @Test
+    fun constructorAlt() {
+        assertNotNull(ResourcesProvider(ApplicationProvider.getApplicationContext(), R.style.AppTheme_TextView))
     }
 
     @Test
@@ -116,16 +124,27 @@ class ResourcesProviderTest {
     fun color() {
         assertEquals(resourcesProvider.color(R.color.black), Color.BLACK)
         assertEquals(resourcesProvider.color(android.R.attr.textColor, R.style.AppTheme_TextView), Color.BLACK)
+        assertEquals(resourcesProvider.colorRes(android.R.attr.textColor, R.style.AppTheme_TextView), android.R.color.black)
     }
 
     @Test
     fun colorStateList() {
-        val a = resourcesProvider.colorStateList(R.drawable.color_selector)!!
-        val b = ColorStateList(
-            arrayOf(intArrayOf(android.R.attr.state_pressed), intArrayOf()),
-            intArrayOf(Color.BLACK, Color.WHITE)
+        var a = resourcesProvider.colorStateList(R.color.color_selector)!!
+        var b = ColorStateList(arrayOf(intArrayOf(android.R.attr.state_pressed), intArrayOf()), intArrayOf(Color.BLACK, Color.WHITE))
+        assertEquals(
+            a.getColorForState(intArrayOf(android.R.attr.state_pressed), 0),
+            b.getColorForState(intArrayOf(android.R.attr.state_pressed), 0)
         )
-        assertEquals(a.changingConfigurations, b.changingConfigurations)
+
+        a = resourcesProvider.colorStateList(R.color.color_selector_attr, R.style.AppTheme_Selector)!!
+        b = ColorStateList(arrayOf(intArrayOf(android.R.attr.state_pressed), intArrayOf()), intArrayOf(Color.DKGRAY, Color.WHITE))
+        assertEquals(
+            a.getColorForState(intArrayOf(android.R.attr.state_pressed), 0),
+            b.getColorForState(intArrayOf(android.R.attr.state_pressed), 0)
+        )
+
+        a = ColorStateList.valueOf(resourcesProvider.color(android.R.attr.textColor, R.style.AppTheme_TextView))
+        assertEquals(a, resourcesProvider.colorStateListFromAttr(android.R.attr.textColor, R.style.AppTheme_TextView))
     }
 
     @Test
@@ -165,7 +184,7 @@ class ResourcesProviderTest {
 
     @Test
     fun identifier() {
-        assertEquals(resourcesProvider.identifier("ic_android_black_24dp", "drawable", appContext.getPackageName()), R.drawable.ic_android_black_24dp)
-        assertNotEquals(resourcesProvider.identifier("icon", "drawable", appContext.getPackageName()), R.drawable.ic_android_black_24dp)
+        assertEquals(resourcesProvider.identifier("ic_android_black_24dp", "drawable", appContext.packageName), R.drawable.ic_android_black_24dp)
+        assertNotEquals(resourcesProvider.identifier("icon", "drawable", appContext.packageName), R.drawable.ic_android_black_24dp)
     }
 }
