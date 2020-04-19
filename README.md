@@ -11,7 +11,7 @@ The first step is to include ResourcesProvider-ktx into your project, for exampl
 ```groovy
 implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 ```
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.guilhe/resources-provider-ktx/badge.svg)](https://search.maven.org/search?q=g:com.github.guilhe%20AND%20resources-provider-ktx) [![Download](https://api.bintray.com/packages/gdelgado/android/ResourcesProvider-ktx/images/download.svg)](https://bintray.com/gdelgado/android/ResourcesProvider-ktx/_latestVersion)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.guilhe/resources-provider-ktx.svg)](https://search.maven.org/search?q=g:com.github.guilhe%20AND%20resources-provider-ktx) [![Download](https://api.bintray.com/packages/gdelgado/android/ResourcesProvider-ktx/images/download.svg)](https://bintray.com/gdelgado/android/ResourcesProvider-ktx/_latestVersion)
 
 ## Resources types
 
