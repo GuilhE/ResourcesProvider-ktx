@@ -59,7 +59,7 @@ by `@ColorRes`:
 
 by `@ColorInt`:  
 ```java
-.backgroundTintList = resourcesProvider.colorStateList(R.attr.colorPrimary, R.style.App_Style_B)
+.backgroundTintList = ColorStateList.valueOf(resourcesProvider.colorStateList(R.attr.colorPrimary, R.style.App_Style_B))
 .setColor(resourcesProvider.color(R.attr.colorPrimary, R.style.App_Style_C))
 ```
 
