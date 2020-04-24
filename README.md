@@ -76,16 +76,8 @@ class Activity : AppCompatActivity(){
     }
 }
 ```
-By `@Inject`:
-```java
-class MyClass
-@Inject constructor(resourcesProvider: ResourcesProvider)
-
-fun work(){
-    resourcesProvider.color(R.color.color_1)
-}
-``` 
-To add to your dependencies graph using Dagger:
+By Dependency Injection (ex: `Dagger`):  
+Add to your dependencies graph:
 ```java
     @JvmStatic
     @Provides
@@ -94,6 +86,19 @@ To add to your dependencies graph using Dagger:
         return ResourcesProvider(context)
     }
 ```
+Use it:
+```java
+//by constructor injection
+class MyClass @Inject constructor(resourcesProvider: ResourcesProvider)
+
+//by field injection
+@Inject
+protected lateinit var resourcesProvider: ResourcesProvider
+
+fun work(){
+    resourcesProvider.color(R.color.color_1)
+}
+``` 
 Done! 😎
     
 ## Dependencies
