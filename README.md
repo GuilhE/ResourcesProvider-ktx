@@ -4,16 +4,18 @@
 Need a resource but don't remember where to get it from: ContextCompat, ResourcesCompat, AnimationUtils, Context.resources?  
 Fear no more, this lib puts them all in one place! 🤩🥳
 
-## Getting started
+## Installation
 
-The first step is to include ResourcesProvider-ktx into your project, for example, as a Gradle compile dependency:
+ResourcesProvider-ktx is distributed through [Maven Central](https://search.maven.org/artifact/com.github.guilhe/resources-provider-ktx), [Jcenter](https://bintray.com/gdelgado/android/ResourcesProvider-ktx) and [Jitpack](https://jitpack.io/#GuilhE/ResourcesProvider-ktx).
 
 ```groovy
 implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 ```
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.guilhe/resources-provider-ktx.svg)](https://search.maven.org/search?q=g:com.github.guilhe%20AND%20resources-provider-ktx) [![Download](https://api.bintray.com/packages/gdelgado/android/ResourcesProvider-ktx/images/download.svg)](https://bintray.com/gdelgado/android/ResourcesProvider-ktx/_latestVersion)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.guilhe/resources-provider-ktx.svg)](https://search.maven.org/search?q=g:com.github.guilhe%20AND%20resources-provider-ktx) [![Download](https://api.bintray.com/packages/gdelgado/android/ResourcesProvider-ktx/images/download.svg)](https://bintray.com/gdelgado/android/ResourcesProvider-ktx/_latestVersion) ![Bintray](https://img.shields.io/bintray/dt/gdelgado/android/ResourcesProvider-ktx)
 
-## Resources types
+## Usage
+
+### Resources types
 
 ```java
 - text(@StringRes resId: Int): CharSequence
@@ -32,6 +34,7 @@ implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 - dimensionPixelOffset(@DimenRes resId: Int): Int
 - drawable(@DrawableRes resId: Int): Drawable?
 - drawable(@DrawableRes id: Int, @StyleRes themeResId: Int): Drawable?
+- drawableRes(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Drawable?
 - drawableForDensity(@DrawableRes id: Int, @StyleRes themeResId: Int, density: Int): Drawable?
 - color(@ColorRes resId: Int): Int
 - color(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Int
@@ -46,9 +49,9 @@ implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 - value(@DimenRes id: Int, resolveRefs: Boolean): TypedValue
 - identifier(name: String, defType: String, defPackage: String): Int
 ```
-## Themes
+### Themes
 
-You can also easily change themed attributes as follow:
+You can also easily change themed attributes as the following examples:
 
 by `@ColorRes`:  
 ```java
@@ -66,7 +69,8 @@ by `ColorStateList`:
 .backgroundTintList = resourcesProvider.colorStateList(R.color.color_selector, R.style.App_Style_C)
 ```
 
-## Sample usage
+
+### Setup
 
 By Kotlin Extensions (View, Activity, Fragment):
 ```java
@@ -110,10 +114,6 @@ Done! 😎
 ## Bugs and Feedback
 
 For bugs, questions and discussions please use the [Github Issues](https://github.com/GuilhE/ResourcesProvider-ktx/issues).
-
-## Binaries
-Additional binaries and dependency information for can be found [here](https://search.maven.org/artifact/com.github.guilhe/resources-provider-ktx).  
-<a href='https://bintray.com/gdelgado/android/ResourcesProvider-ktx?source=watch' alt='Get automatic notifications about new "ResourcesProvider-ktx" versions'><img src='https://www.bintray.com/docs/images/bintray_badge_bw.png'></a>
 
 ## LICENSE
 
