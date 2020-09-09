@@ -70,7 +70,7 @@ constructor(val ctx: Context) {
     inline fun drawable(@DrawableRes id: Int, @StyleRes themeResId: Int): Drawable? =
             ResourcesCompat.getDrawable(ctx.resources, id, ContextThemeWrapper(ctx, themeResId).theme)
 
-    inline fun drawableRes(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Drawable? =
+    inline fun drawableFromAttr(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Drawable? =
             drawable(TypedValue().also { ContextThemeWrapper(ctx, themeResId).theme.resolveAttribute(attrResId, it, true) }.resourceId)
 
     inline fun drawableForDensity(@DrawableRes id: Int, @StyleRes themeResId: Int, density: Int): Drawable? =
