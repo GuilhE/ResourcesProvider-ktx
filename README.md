@@ -34,7 +34,7 @@ implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 - dimensionPixelOffset(@DimenRes resId: Int): Int
 - drawable(@DrawableRes resId: Int): Drawable?
 - drawable(@DrawableRes id: Int, @StyleRes themeResId: Int): Drawable?
-- drawableRes(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Drawable?
+- drawableFromAttr(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Drawable?
 - drawableForDensity(@DrawableRes id: Int, @StyleRes themeResId: Int, density: Int): Drawable?
 - color(@ColorRes resId: Int): Int
 - color(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Int
