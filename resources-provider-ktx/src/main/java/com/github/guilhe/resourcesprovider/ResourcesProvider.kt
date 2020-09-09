@@ -45,7 +45,7 @@ constructor(val ctx: Context) {
 
     @Throws(Resources.NotFoundException::class)
     inline fun quantityString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any): String =
-        ctx.resources.getQuantityString(id, quantity, *formatArgs)
+            ctx.resources.getQuantityString(id, quantity, *formatArgs)
 
     @Throws(Resources.NotFoundException::class)
     inline fun integer(@IntegerRes id: Int): Int = ctx.resources.getInteger(id)
@@ -68,31 +68,34 @@ constructor(val ctx: Context) {
     inline fun drawable(@DrawableRes id: Int): Drawable? = ContextCompat.getDrawable(ctx, id)
 
     inline fun drawable(@DrawableRes id: Int, @StyleRes themeResId: Int): Drawable? =
-        ResourcesCompat.getDrawable(ctx.resources, id, ContextThemeWrapper(ctx, themeResId).theme)
+            ResourcesCompat.getDrawable(ctx.resources, id, ContextThemeWrapper(ctx, themeResId).theme)
+
+    inline fun drawableRes(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Drawable? =
+            drawable(TypedValue().also { ContextThemeWrapper(ctx, themeResId).theme.resolveAttribute(attrResId, it, true) }.resourceId)
 
     inline fun drawableForDensity(@DrawableRes id: Int, @StyleRes themeResId: Int, density: Int): Drawable? =
-        ResourcesCompat.getDrawableForDensity(ctx.resources, id, density, ContextThemeWrapper(ctx, themeResId).theme)
+            ResourcesCompat.getDrawableForDensity(ctx.resources, id, density, ContextThemeWrapper(ctx, themeResId).theme)
 
     @ColorInt
     inline fun color(@ColorRes id: Int): Int = ContextCompat.getColor(ctx, id)
 
     @ColorInt
     inline fun color(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Int =
-        color(TypedValue().also { ContextThemeWrapper(ctx, themeResId).theme.resolveAttribute(attrResId, it, true) }.resourceId)
+            color(TypedValue().also { ContextThemeWrapper(ctx, themeResId).theme.resolveAttribute(attrResId, it, true) }.resourceId)
 
     @ColorRes
     inline fun colorRes(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Int =
-        TypedValue().also { ContextThemeWrapper(ctx, themeResId).theme.resolveAttribute(attrResId, it, true) }.resourceId
+            TypedValue().also { ContextThemeWrapper(ctx, themeResId).theme.resolveAttribute(attrResId, it, true) }.resourceId
 
     @Throws(Resources.NotFoundException::class)
     inline fun colorStateList(@ColorRes id: Int): ColorStateList? = ContextCompat.getColorStateList(ctx, id)
 
     @Throws(Resources.NotFoundException::class)
     inline fun colorStateList(@ColorRes id: Int, @StyleRes themeResId: Int): ColorStateList? =
-        ResourcesCompat.getColorStateList(ctx.resources, id, ContextThemeWrapper(ctx, themeResId).theme)
+            ResourcesCompat.getColorStateList(ctx.resources, id, ContextThemeWrapper(ctx, themeResId).theme)
 
     inline fun colorStateListFromAttr(@AttrRes attrResId: Int, @StyleRes themeResId: Int): ColorStateList =
-        ColorStateList.valueOf(color(attrResId, themeResId))
+            ColorStateList.valueOf(color(attrResId, themeResId))
 
     @Throws(Resources.NotFoundException::class)
     inline fun font(@FontRes id: Int): Typeface? = ResourcesCompat.getFont(ctx, id)
@@ -101,10 +104,10 @@ constructor(val ctx: Context) {
     inline fun loadAnimation(@AnimRes id: Int): Animation = AnimationUtils.loadAnimation(ctx, id)
 
     inline fun resolveAttribute(@AttrRes id: Int, outValue: TypedValue, resolveRefs: Boolean): Boolean =
-        ctx.theme.resolveAttribute(id, outValue, resolveRefs)
+            ctx.theme.resolveAttribute(id, outValue, resolveRefs)
 
     inline fun resolveAttribute(@AttrRes id: Int, @StyleRes themeResId: Int, outValue: TypedValue, resolveRefs: Boolean): Boolean =
-        ContextThemeWrapper(ctx, themeResId).theme.resolveAttribute(id, outValue, resolveRefs)
+            ContextThemeWrapper(ctx, themeResId).theme.resolveAttribute(id, outValue, resolveRefs)
 
     @Throws(Resources.NotFoundException::class)
     inline fun value(@DimenRes id: Int, resolveRefs: Boolean): TypedValue = TypedValue().apply {
