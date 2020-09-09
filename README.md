@@ -69,6 +69,10 @@ by `ColorStateList`:
 .backgroundTintList = resourcesProvider.colorStateList(R.color.color_selector, R.style.App_Style_C)
 ```
 
+by `drawableFromAttr`:  
+```java
+.foreground = resourcesProvider.drawableFromAttr(android.R.attr.selectableItemBackground, R.style.App)
+```
 
 ### Setup
 
