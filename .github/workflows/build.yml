@@ -1,1 +1,12 @@
-
+name: Build
+on: [pull_request, push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+      - name: Build
+        run: ./gradlew build
+      - name: Test
+        run: ./gradlew build
