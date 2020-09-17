@@ -111,8 +111,9 @@ Done! 😎
     
 ## Dependencies
 
-- [androidx.core:core-ktx]("https://developer.android.com/jetpack/androidx/releases/core")
-- [androidx.fragment:fragment-ktx]("https://developer.android.com/jetpack/androidx/releases/fragment")
+- [androidx.core:core-ktx](https://developer.android.com/jetpack/androidx/releases/core)
+- [androidx.fragment:fragment-ktx](https://developer.android.com/jetpack/androidx/releases/fragment)
+
 
 
 ## Bugs and Feedback
