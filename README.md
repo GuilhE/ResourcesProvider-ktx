@@ -110,10 +110,10 @@ fun work(){
 Done! 😎
     
 ## Dependencies
-```groovy
-'androidx.core:core-ktx'
-'androidx.fragment:fragment-ktx'
-```
+
+- [androidx.core:core-ktx]("https://developer.android.com/jetpack/androidx/releases/core")
+- [androidx.fragment:fragment-ktx]("https://developer.android.com/jetpack/androidx/releases/fragment")
+
 
 ## Bugs and Feedback
 
