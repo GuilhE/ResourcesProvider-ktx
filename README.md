@@ -17,7 +17,7 @@ implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 
 ### Resources types
 
-```java
+```kotlin
 - text(@StringRes resId: Int): CharSequence
 - textArray(@ArrayRes resId: Int): Array<CharSequence>
 - quantityText(@PluralsRes resId: Int, quantity: Int): CharSequence
@@ -54,30 +54,30 @@ implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 You can also easily change themed attributes as the following examples:
 
 by `@ColorRes`:  
-```java
+```kotlin
 .setBackgroundColor(resourcesProvider.colorRes(R.attr.colorPrimary, R.style.App_Style_A)
 ```
 
 by `@ColorInt`:  
-```java
+```kotlin
 .setColor(resourcesProvider.color(R.attr.colorPrimary, R.style.App_Style_B))
 ```
 
 by `ColorStateList`:  
-```java
+```kotlin
 .backgroundTintList = resourcesProvider.colorStateListFromAttr(R.attr.colorPrimary, R.style.App_Style_C)
 .backgroundTintList = resourcesProvider.colorStateList(R.color.color_selector, R.style.App_Style_C)
 ```
 
 by `drawableFromAttr`:  
-```java
+```kotlin
 .foreground = resourcesProvider.drawableFromAttr(android.R.attr.selectableItemBackground, R.style.App)
 ```
 
 ### Setup
 
 By Kotlin Extensions (View, Activity, Fragment):
-```java
+```kotlin
 class Activity : AppCompatActivity(){
     fun work() {
         resourcesProvider().string(R.string.app_name_label)
@@ -86,16 +86,16 @@ class Activity : AppCompatActivity(){
 ```
 By Dependency Injection (ex: `Dagger`):  
 Add to your dependencies graph:
-```java
-    @JvmStatic
-    @Provides
-    @Singleton
-    fun provideResourcesProvider(context: YourApp): ResourcesProvider{
-        return ResourcesProvider(context)
-    }
+```kotlin
+@JvmStatic
+@Provides
+@Singleton
+fun provideResourcesProvider(context: YourApp): ResourcesProvider{
+    return ResourcesProvider(context)
+}
 ```
 Use it:
-```java
+```kotlin
 //by constructor injection
 class MyClass @Inject constructor(resourcesProvider: ResourcesProvider)
 
