@@ -18,36 +18,36 @@ implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 ### Resources types
 
 ```kotlin
-- text(@StringRes resId: Int): CharSequence
-- textArray(@ArrayRes resId: Int): Array<CharSequence>
-- quantityText(@PluralsRes resId: Int, quantity: Int): CharSequence
-- string(@StringRes resId: Int): String
-- string(@StringRes resId: Int, vararg formatArgs: Any): String
-- stringArray(@ArrayRes resId: Int): Array<String>
-- quantityString(@PluralsRes resId: Int, quantity: Int): String
-- quantityString(@PluralsRes resId: Int, quantity: Int, vararg formatArgs: Any): String
-- integer(@IntegerRes resId: Int): Int
-- intArray(@ArrayRes resId: Int): IntArray
-- boolean(@BoolRes resId: Int): Boolean
-- dimension(@DimenRes resId: Int): Float
-- dimensionPixelSize(@DimenRes resId: Int): Int
-- dimensionPixelOffset(@DimenRes resId: Int): Int
-- drawable(@DrawableRes resId: Int): Drawable?
-- drawable(@DrawableRes id: Int, @StyleRes themeResId: Int): Drawable?
-- drawableFromAttr(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Drawable?
-- drawableForDensity(@DrawableRes id: Int, @StyleRes themeResId: Int, density: Int): Drawable?
-- color(@ColorRes resId: Int): Int
-- color(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Int
-- colorRes(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Int
-- colorStateList(@ColorRes resId: Int): ColorStateList?
-- colorStateList(@ColorRes id: Int, @StyleRes themeResId: Int): ColorStateList?
-- colorStateListFromAttr(@AttrRes attrResId: Int, @StyleRes themeResId: Int): ColorStateList
-- font(@FontRes id: Int): Typeface?
-- loadAnimation(@AnimRes id: Int): Animation
-- resolveAttribute(@AttrRes id: Int, outValue: TypedValue, resolveRefs: Boolean): Boolean
-- resolveAttribute(@AttrRes id: Int, @StyleRes themeResId: Int, outValue: TypedValue, resolveRefs: Boolean): Boolean
-- value(@DimenRes id: Int, resolveRefs: Boolean): TypedValue
-- identifier(name: String, defType: String, defPackage: String): Int
+text(@StringRes resId: Int): CharSequence
+textArray(@ArrayRes resId: Int): Array<CharSequence>
+quantityText(@PluralsRes resId: Int, quantity: Int): CharSequence
+string(@StringRes resId: Int): String
+string(@StringRes resId: Int, vararg formatArgs: Any): String
+stringArray(@ArrayRes resId: Int): Array<String>
+quantityString(@PluralsRes resId: Int, quantity: Int): String
+quantityString(@PluralsRes resId: Int, quantity: Int, vararg formatArgs: Any): String
+integer(@IntegerRes resId: Int): Int
+intArray(@ArrayRes resId: Int): IntArray
+boolean(@BoolRes resId: Int): Boolean
+dimension(@DimenRes resId: Int): Float
+dimensionPixelSize(@DimenRes resId: Int): Int
+dimensionPixelOffset(@DimenRes resId: Int): Int
+drawable(@DrawableRes resId: Int): Drawable?
+drawable(@DrawableRes id: Int, @StyleRes themeResId: Int): Drawable?
+drawableFromAttr(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Drawable?
+drawableForDensity(@DrawableRes id: Int, @StyleRes themeResId: Int, density: Int): Drawable?
+color(@ColorRes resId: Int): Int
+color(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Int
+colorRes(@AttrRes attrResId: Int, @StyleRes themeResId: Int): Int
+colorStateList(@ColorRes resId: Int): ColorStateList?
+colorStateList(@ColorRes id: Int, @StyleRes themeResId: Int): ColorStateList?
+colorStateListFromAttr(@AttrRes attrResId: Int, @StyleRes themeResId: Int): ColorStateList
+font(@FontRes id: Int): Typeface?
+loadAnimation(@AnimRes id: Int): Animation
+resolveAttribute(@AttrRes id: Int, outValue: TypedValue, resolveRefs: Boolean): Boolean
+resolveAttribute(@AttrRes id: Int, @StyleRes themeResId: Int, outValue: TypedValue, resolveRefs: Boolean): Boolean
+value(@DimenRes id: Int, resolveRefs: Boolean): TypedValue
+identifier(name: String, defType: String, defPackage: String): Int
 ```
 ### Themes
 
