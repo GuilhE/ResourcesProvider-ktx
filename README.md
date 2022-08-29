@@ -6,12 +6,12 @@ Fear no more, this lib puts them all in one place! 🤩🥳
 
 ## Installation
 
-ResourcesProvider-ktx is distributed through [Maven Central](https://search.maven.org/artifact/com.github.guilhe/resources-provider-ktx), [Jcenter](https://bintray.com/gdelgado/android/ResourcesProvider-ktx) and [Jitpack](https://jitpack.io/#GuilhE/ResourcesProvider-ktx).
+ResourcesProvider-ktx is distributed through [Maven Central](https://search.maven.org/artifact/com.github.guilhe/resources-provider-ktx) and [Jitpack](https://jitpack.io/#GuilhE/ResourcesProvider-ktx).
 
 ```groovy
 implementation 'com.github.guilhe:resources-provider-ktx:${LATEST_VERSION}'
 ```
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.guilhe/resources-provider-ktx.svg)](https://search.maven.org/search?q=g:com.github.guilhe%20AND%20resources-provider-ktx) [![Download](https://api.bintray.com/packages/gdelgado/android/ResourcesProvider-ktx/images/download.svg)](https://bintray.com/gdelgado/android/ResourcesProvider-ktx/_latestVersion) ![Bintray](https://img.shields.io/bintray/dt/gdelgado/android/ResourcesProvider-ktx)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.guilhe/resources-provider-ktx.svg)](https://search.maven.org/search?q=g:com.github.guilhe%20AND%20resources-provider-ktx)
 
 ## Usage
 
